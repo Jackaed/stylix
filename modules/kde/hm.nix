@@ -233,7 +233,7 @@ in {
       platformTheme = "kde";
     };
 
-    xdg.configFile."kdeglobals".text = "$colorscheme";
+    xdg.configFile."kdeglobals".text = "${colorscheme}";
 
     xdg.systemDirs.config = [ "${configPackage}" ];
 
