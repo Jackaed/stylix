@@ -211,7 +211,7 @@ let
   configPackage = pkgs.runCommandLocal "stylix-kde-config" {
     kcminputrc = formatConfig kcminputrc;
     kded5rc = formatConfig kded5rc;
-    kdeglobals = formatConfig kdeglobals;
+    kdeglobals = formatConfig colorscheme;
   } ''
     mkdir "$out"
 
