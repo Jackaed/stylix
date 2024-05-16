@@ -211,7 +211,7 @@ let
   configPackage = pkgs.runCommandLocal "stylix-kde-config" {
     kcminputrc = formatConfig kcminputrc;
     kded5rc = formatConfig kded5rc;
-    kdeglobals = formatConfig colorscheme;
+    kdeglobals = formatConfig kdeglobals;
   } ''
     mkdir "$out"
 
@@ -232,6 +232,8 @@ in {
       style.name = "breeze";
       platformTheme = "kde";
     };
+
+    xdg.configFile."kdeglobals".text = colorscheme;
 
     xdg.systemDirs.config = [ "${configPackage}" ];
 
@@ -266,8 +268,6 @@ in {
         verboseEcho \
           "plasma-apply-wallpaperimage: command not found"
       fi
-
-      ${pkgs.plasma-workspace}/bin/plasma-apply-lookandfeel --apply stylix
     '';
   };
 }
